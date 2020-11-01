@@ -1,0 +1,135 @@
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.exe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.exe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\OLED-C Animation Example.exe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\OLED-C Animation Example.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MBN.Modules.OLED-CClick.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MikroBusNet.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MBN.Modules.OLED-CClick.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MikroBusNet.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MBN.Modules.OLED-CClick.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MikroBusNet.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MBN.Modules.OLED-CClick.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MikroBusNet.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.dll
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MikroBusNet.dll
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.xml
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MikroBusNet.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MikroBusNet.xml
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\TinyCLR_DebugReferences.cache
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED_C_Animation_Example.Resources.resources
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.csproj.GenerateResource.Cache
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED_C_Animation_Example.Resources.tinyresources
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\TinyResGen.cache
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\be\OLED-C Animation Example.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\be\OLED-C Animation Example.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\le\OLED-C Animation Example.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\le\OLED-C Animation Example.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.exe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.csprojResolveAssemblyReference.cache
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.exe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.exe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\OLED-C Animation Example.exe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\OLED-C Animation Example.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MBN.Modules.OLED-CClick.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MikroBusNet.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MBN.Modules.OLED-CClick.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MikroBusNet.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MBN.Modules.OLED-CClick.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MikroBusNet.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MBN.Modules.OLED-CClick.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MikroBusNet.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.dll
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MikroBusNet.dll
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.xml
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MikroBusNet.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MikroBusNet.xml
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED_C_Animation_Example.Resources.resources
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.csproj.GenerateResource.Cache
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED_C_Animation_Example.Resources.tinyresources
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\TinyResGen.cache
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\be\OLED-C Animation Example.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\be\OLED-C Animation Example.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\le\OLED-C Animation Example.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\le\OLED-C Animation Example.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.exe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.exe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.exe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\OLED-C Animation Example.exe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\OLED-C Animation Example.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MBN.Modules.OLED-CClick.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MBN.Modules.OLED-CClick.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MBN.Modules.OLED-CClick.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MBN.Modules.OLED-CClick.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.dll
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.xml
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED_C_Animation_Example.Resources.resources
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.csproj.GenerateResource.Cache
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED_C_Animation_Example.Resources.tinyresources
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\TinyResGen.cache
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\be\OLED-C Animation Example.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\be\OLED-C Animation Example.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\le\OLED-C Animation Example.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\le\OLED-C Animation Example.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.exe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.csprojResolveAssemblyReference.cache
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\TinyCLR_DebugReferences.cache
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.exe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.exe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\OLED-C Animation Example.exe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\OLED-C Animation Example.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\le\OLED-C Animation Example.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\be\OLED-C Animation Example.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MBN.Modules.OLED-CClick.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MBN.Modules.OLED-CClick.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\MBN.Modules.OLED-CClick.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\MBN.Modules.OLED-CClick.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.dll
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\MBN.Modules.OLED-CClick.xml
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED_C_Animation_Example.Resources.resources
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.csproj.GenerateResource.Cache
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED_C_Animation_Example.Resources.tinyresources
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\TinyResGen.cache
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\be\OLED-C Animation Example.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\be\OLED-C Animation Example.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\le\OLED-C Animation Example.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\le\OLED-C Animation Example.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.exe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\OLED-C Animation Example.csprojResolveAssemblyReference.cache
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\obj\Release\TinyCLR_DebugReferences.cache
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\Graphics.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\Graphics.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\LE\Graphics.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\BE\Graphics.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\Graphics.dll
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\Graphics.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Animation Example\bin\Release\Graphics.xml

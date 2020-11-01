@@ -1,0 +1,2690 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MBN.Modules.OLED-CClick</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.SPOT.MikroBitmap">
+            <summary>
+            An abstract class with support for bitmaps of the BGR 565 Color format.
+            </summary>
+        </member>
+        <member name="M:Microsoft.SPOT.MikroBitmap.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new empty MikroBitmap object which you can use as a drawing surface.
+            </summary>
+            <param name="width">The width of the MikroBitmap.</param>
+            <param name="height">The height of the MikroBitmap.</param>
+            <remarks>Use this Constructor to instantiate an empty MikroBitmap object with the size of the supplied dimensions.</remarks>
+            <example>Example usage:
+            <code language = "C#">
+            MikroBitmap bmp = new MikroBitmap(96, 96);
+            </code>
+            <code language = "VB">
+            Dim bmp As MiroBitmap = New MikroBitmap(96, 96)
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.MikroBitmap.#ctor(System.Byte[],System.Int32,System.Int32)">
+             <summary>
+             Creates a new MikroBitmap object from raw pixel data which you can use as a drawing surface.
+             </summary>
+             <param name="pixelData">Array of pixel data</param>
+             <param name="width">The Width of the MikroBitmap object.</param>
+             <param name="height">The Height of MikroBitmap object.</param>
+             <remarks>Use this Constructor to instantiate a Bitmap object from an array of 565 BGR pixel data without embedded Width and Height information.</remarks>
+             <example>Example usage:
+             <code language = "C#">
+            	byte[] tinyBMP =
+            	{
+            		0xA1, 0x24, 0x58, 0x00, 0x58, 0x00, 0xA1, 0x24
+            	};
+            	_oled.Canvas.Clear(KnownColors.White);
+            	_oled.Canvas.DrawImage(new MikroBitmap(tinyBMP, 2, 2), (96 - 2) / 2, (96 - 2) / 2);
+            	_oled.Flush();
+             </code>
+             <code language = "VB">
+            	Dim tinyBMP As Byte() = {<![CDATA[&]]>HA1, <![CDATA[&]]>H24, <![CDATA[&]]>H58, <![CDATA[&]]>H0, <![CDATA[&]]>H58, <![CDATA[&]]>H0, <![CDATA[&]]>HA1, <![CDATA[&]]>H24}
+            _oled.Canvas.Clear(KnownColors.White)
+            _oled.Canvas.DrawImage(New MikroBitmap(tinyBMP, 2, 2), (96 - 2) \ 2, (96 - 2) \ 2)
+            _oled.Flush()
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.SPOT.MikroBitmap.#ctor(System.Byte[])">
+             <summary>
+             Creates a new MikroBitmap object from raw pixel data which you can use as a drawing surface.
+             </summary>
+             <param name="pixelData">Array of pixel data</param>
+             <remarks>Use this Constructor to instantiate a Bitmap object from an array of 565 BGR pixel data with embedded Width and Height information. For example, from the output of the MBN BitmapConverter.</remarks>
+             <example>Example usage:
+             <code language = "C#">
+            	byte[] tinyBmp =
+            	{
+            		0x02, 0x02, 0xA1, 0x24, 0x58, 0x00, 0x58, 0x00, 0xA1, 0x24
+            	};
+            	_oled.Canvas.Clear(KnownColors.White);
+            	_oled.Canvas.DrawImage(new MikroBitmap(tinyBmp), (96 - 2) / 2, (96 - 2) / 2);
+            	_oled.Flush();
+             Or
+             MikroBitmap logo = new MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin));
+            	_oled.Canvas.Clear(KnownColors.White);
+            	_oled.Canvas.DrawImage(logo, (_oled.CanvasWidth - logo.Width) / 2, (_oled.CanvasHeight - logo.Height) / 2);
+            	_oled.Flush();
+             </code>
+             <code language = "VB">
+             Dim tinyBmp As Byte() = {<![CDATA[&]]>H2, <![CDATA[&]]>H2, <![CDATA[&]]>HA1, <![CDATA[&]]>H24, <![CDATA[&]]>H58, <![CDATA[&]]>H0, <![CDATA[&]]>H58, <![CDATA[&]]>H0, <![CDATA[&]]>HA1, <![CDATA[&]]>H24}
+             _oled.Canvas.Clear(KnownColors.White)
+             _oled.Canvas.DrawImage(New MikroBitmap(tinyBmp), (96 - 2) \ 2, (96 - 2) \ 2)
+             _oled.Flush()
+            	Or
+             Dim logo As New MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin))
+            _oled.Canvas.Clear(KnownColors.White)
+            _oled.Canvas.DrawImage(logo, (_oled.CanvasWidth - logo.Width) \ 2, (_oled.CanvasHeight - logo.Height) \ 2)
+            _oled.Flush()
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.SPOT.MikroBitmap.Clear">
+            <summary>
+            Clears the MikroBitmap object turning all pixels to Black.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            _oled.Clear();
+            </code>
+            <code language = "VB">
+            _oled.Clear()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.MikroBitmap.Clear(Microsoft.SPOT.Presentation.Media.MikroColor)">
+            <summary>
+            Clears the MikroBitmap object turning all pixels to the specified <see cref="T:Microsoft.SPOT.Presentation.Media.MikroColor"/>.
+            </summary>
+            <param name="color">The new <see cref="T:Microsoft.SPOT.Presentation.Media.MikroColor"/> for the MikroBitmap object.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Clear(KnownColors.Orange);
+            </code>
+            <code language="VB">
+            _oled.Clear(KnownColors.Orange)
+            </code>
+            </example>
+        </member>
+        <member name="P:Microsoft.SPOT.MikroBitmap.ClippingRegion">
+            <summary>
+            Gets or Sets the clipping region of the drawing surface of the MikroBitmap object.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            MikroBitmap logo = new MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin));
+            logo.ClippingRegion = new Rect(10, 10, 76, 79);
+            </code>
+            <code language = "VB">
+            Dim logo As New MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin))
+            logo.ClippingRegion = New Rect(10, 10, 76, 79)
+            </code>
+            </example>
+        </member>
+        <member name="P:Microsoft.SPOT.MikroBitmap.Height">
+            <summary>
+            Gets the Height of the MikroBitmap object
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Dim logo As New MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin))
+            Debug.Print("Logo Height? " + logo.Height)
+            </code>
+            <code language = "VB">
+            Dim logo As New MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin))
+            Debug.Print("Logo Height? " <![CDATA[&]]> logo.Height)
+            </code>
+            </example>
+        </member>
+        <member name="P:Microsoft.SPOT.MikroBitmap.Pixels">
+            <summary>
+            Gets or Sets the Pixel data of the MikroBitmap object.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            MikroBitmap logo1 = new MikroBitmap(96, 96);
+            MikroBitmap logo2 = new MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin));
+            logo1.Pixels = logo2.Pixels;
+            _oled.Flush(logo);
+            </code>
+            <code language = "VB">
+            Dim logo1 As New MikroBitmap(96, 96)
+            Dim logo2 As New MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin))
+            logo1.Pixels = logo2.Pixels
+            _oled.Flush(logo)
+            </code>
+            </example>
+        </member>
+        <member name="P:Microsoft.SPOT.MikroBitmap.Width">
+            <summary>
+            Gets the Width of the MikroBitmap object
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Dim logo As New MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin))
+            Debug.Print("Logo Width? " + logo.Width)
+            </code>
+            <code language = "VB">
+            Dim logo As New MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin))
+            Debug.Print("Logo Width? " <![CDATA[&]]> logo.Width)
+            </code>
+            </example>
+        </member>
+        <member name="T:Microsoft.SPOT.BitmapExtensions">
+            <summary>
+            A class containing extension methods for the MikroBitmap object.
+            </summary>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.ToMikroBitmap(Microsoft.SPOT.Bitmap)">
+             <summary>
+             Converts a RGB 888 Bitmap to a 565 MikroBitmap object.
+             </summary>
+             <param name="bitmap">The <see cref="T:Microsoft.SPOT.Bitmap"/> to convert.</param>
+             <returns>A properly formatted MikroBitmap object to use as a parameter to the <see cref="M:MikroBitmap(byte[])"/> Constructor.</returns>
+             <exception cref="T:System.ArgumentOutOfRangeException">A ArgumentOutOfRangeException will be thrown if the supplied RGB 888 Bitmap is larger than 96 x 96 pixels.</exception>
+             <example>Example usage:
+             <code language="C#">
+            	using (var bmp = new Bitmap(Resources.GetBytes(Resources.BinaryResources.mbn_logo), Bitmap.BitmapImageType.Bmp))
+            	{
+            		_oled.Canvas.Clear(KnownColors.White);
+            		var img = bmp.ToMikroBitmap();
+            		_oled.Canvas.DrawImage(img, (_oled.CanvasWidth - bmp.Width) / 2, (_oled.CanvasHeight - bmp.Height) / 2);
+            		_oled.Flush();
+            	}
+             </code>
+             <code language="VB">
+            	Using bmp = New Bitmap(Resources.GetBytes(Resources.BinaryResources.mbn_logo), Bitmap.BitmapImageType.Bmp)
+             _oled.Canvas.Clear(KnownColors.White)
+             Dim img As Byte() = bmp.ToMikroBitmap()
+             _oled.Canvas.DrawImage(img, (_oled.CanvasWidth - bmp.Width) \ 2, (_oled.CanvasHeight - bmp.Height) \ 2)
+            _oled.Flush()
+             End Using
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawImage(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.MikroBitmap,System.Int32,System.Int32)">
+             <summary>
+             Renders a MikroBitmap object on the drawing surface of the canvas at the specified location.
+             </summary>
+             <param name="canvas">The canvas surface to draw on.</param>
+             <param name="bitmap">The MikroBitmap object to draw.</param>
+             <param name="x">The X position to draw at.</param>
+             <param name="y">The Y position to draw at.</param>
+             <remarks>Use this method when drawing an image from a MikroBitmap generated by the MikroBus.Net BitmapGenerator program. For example, as an embedded Bin file.</remarks>
+             <example>Example usage:
+             <code language = "C#">
+             MikroBitmap logo = new MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin));
+            	_oled.Canvas.Clear(KnownColors.White);
+            	_oled.Canvas.DrawImage(logo, (_oled.CanvasWidth - logo.Width) / 2, (_oled.CanvasHeight - logo.Height) / 2);
+            	_oled.Flush();
+             </code>
+             <code language = "VB">
+             Dim logo As New MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin))
+            _oled.Canvas.Clear(KnownColors.White)
+            _oled.Canvas.DrawImage(logo, (_oled.CanvasWidth - logo.Width) \ 2, (_oled.CanvasHeight - logo.Height) \ 2)
+            _oled.Flush()
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawImage(Microsoft.SPOT.MikroBitmap,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Renders a MikroBitmap object on the drawing surface of the canvas at the specified location.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="bitmapBytes">The raw Bitmap bytes to draw.</param>
+            <param name="x">The X coordinate to start rendering the MikroBitmap at.</param>
+            <param name="y">The Y coordinate to start rendering the MikroBitmap at.</param>
+            <remarks>Use this method when drawing an image from a Byte Array containing the Width and Height information of the bitmap as the first two bytes as generated by the MikroBus.Net BitmapGenerator program as Hex output.</remarks>
+            <example>Example usage:
+            <code language = "C#">
+            byte[] tinyBmp =
+            {
+            	0x02, 0x02, 0xA1, 0x24, 0x58, 0x00, 0x58, 0x00, 0xA1, 0x24
+            };
+            _oled.Canvas.Clear(KnownColors.White);
+            _oled.Canvas.DrawImage(new MikroBitmap(tinyBmp), (96 - 2) / 2, (96 - 2) / 2);
+            _oled.Flush();
+            </code>
+            <code language = "VB">
+            Dim tinyBmp As Byte() = {<![CDATA[&]]>H2, <![CDATA[&]]>H2, <![CDATA[&]]>HA1, <![CDATA[&]]>H24, <![CDATA[&]]>H58, <![CDATA[&]]>H0, <![CDATA[&]]>H58, <![CDATA[&]]>H0, <![CDATA[&]]>HA1, <![CDATA[&]]>H24}
+            _oled.Canvas.Clear(KnownColors.White)
+            _oled.Canvas.DrawImage(New MikroBitmap(tinyBmp), (96 - 2) \ 2, (96 - 2) \ 2)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.GetPixel(Microsoft.SPOT.MikroBitmap,System.Int32,System.Int32)">
+            <summary>
+            Returns the <see cref="T:Microsoft.SPOT.Presentation.Media.MikroColor"/> of the pixel on the drawing surface of the canvas at the specified location.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="x">The X location of the pixel to get.</param>
+            <param name="y">The Y location of the Pixel to get.</param>
+            <returns>The MikroColor of the pixel at the specified location. Or <see cref="F:Microsoft.SPOT.Presentation.Media.KnownColors.Black"/> if an invalid pixel location is used a a parameter.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">An ArgumentOutOfRangeException will be thrown if the X or Y parameter of the Pixel location is outside the drawing surface of the canvas.</exception>
+            <example>Example usage:
+            <code language="C#">
+            MikroBitmap logo = new MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin));
+            var pixelColor = logo.GetPixel(10, 10);
+            if (pixelColor == KnownColors.Black) pixelColor = KnownColors.White;
+            logo.SetPixel(pixelColor, 10, 10);
+            </code>
+            <code language="VB">
+            Dim logo As New MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin))
+            Dim pixelColor As MikroColor = logo.GetPixel(10, 10)
+            If pixelColor Is KnownColors.Black Then pixelColor = KnownColors.White
+            logo.SetPixel(pixelColor, 10, 10)
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.SetPixel(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32)">
+            <summary>
+            Sets the pixel at the specified location on the drawing surface of the canvas at the specified location.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="color">The <see cref="T:Microsoft.SPOT.Presentation.Media.MikroColor"/> to set the pixel to.</param>
+            <param name="x">The X location of the pixel to set.</param>
+            <param name="y">The Y location of the Pixel to set.</param>
+            <example>Example usage:
+            <code language="C#">
+            MikroBitmap logo = new MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin));
+            var pixelColor = logo.GetPixel(10, 10);
+            if (pixelColor == KnownColors.Black) pixelColor = KnownColors.White;
+            logo.SetPixel(pixelColor, 10, 10);
+            </code>
+            <code language="VB">
+            Dim logo As New MikroBitmap(Resources.GetBytes(Resources.BinaryResources.mbn_bin))
+            Dim pixelColor As MikroColor = logo.GetPixel(10, 10)
+            If pixelColor Is KnownColors.Black Then pixelColor = KnownColors.White
+            logo.SetPixel(pixelColor, 10, 10)
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawText(Microsoft.SPOT.MikroBitmap,System.String,MBN.Modules.MikroFont,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32)">
+            <summary>
+            Draws text with an transparent background on the drawing surface of the canvas at the specified location.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="text">The Text to render to the OLED Display.</param>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> to render the text with.</param>
+            <param name="textColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> to use for rendering the text.</param>
+            <param name="x">The X location of the MikroBitmap to render the text.</param>
+            <param name="y">The Y location of the MikroBitmap to render the text.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear(KnownColors.White);
+            MikroFont _font1 = FontManager.GetFont(FontManager.FontName.TahomaReg7);
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, 0, 0);
+            _oled.Flush(_oled.Canvas);
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear(KnownColors.White)
+            Dim _font1 As MikroFont = FontManager.GetFont(FontManager.FontName.TahomaReg7)
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, 0, 0)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawText(Microsoft.SPOT.MikroBitmap,System.String,MBN.Modules.MikroFont,Microsoft.SPOT.Presentation.Media.MikroColor,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32)">
+             <summary>
+             Draws text with an opaque background on the drawing surface of the canvas at the specified location.
+             </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="text">The Text to render to the OLED Display.</param>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> to render the text with.</param>
+            <param name="textColor"></param>
+            <param name="backColor">The background <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> for the rendered text.</param>
+            <param name="x">The X location of the MikroBitmap to render the text.</param>
+            <param name="y">The Y location of the MikroBitmap to render the text.</param>
+            <example>Example usage:
+             <code language="C#">
+            _oled.Canvas.Clear(KnownColors.White);
+            MikroFont _font1 = FontManager.GetFont(FontManager.FontName.TahomaReg7);
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, KnownColors.Red, 0, 0);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear(KnownColors.White)
+            Dim _font1 As MikroFont = FontManager.GetFont(FontManager.FontName.TahomaReg7)
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, KnownColors.Red, 0, 0)
+            _oled.Flush()
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawText(Microsoft.SPOT.MikroBitmap,System.String,MBN.Modules.MikroFont,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Draws text with an transparent background on the drawing surface of the canvas within the confines of the supplied dimensions.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="text">The Text to render to the OLED Display.</param>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> to render the text with.</param>
+            <param name="textColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> to use for rendering the text.</param>
+            <param name="x">The X location of the MikroBitmap to render the text.</param>
+            <param name="y">The Y location of the MikroBitmap to render the text.</param>
+            <param name="width">The Width dimension of the MikroBitmap to render the text.</param>
+            <param name="height">The Height dimension of the MikroBitmap to render the text.</param>
+            <param name="center">Optional - If True, the text will be horizontally centered within the confines of the supplied dimension, otherwise the text will be left justified.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear(KnownColors.White);
+            MikroFont _font1 = FontManager.GetFont(FontManager.FontName.TahomaReg7);
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, 0, 0, false);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear(KnownColors.White)
+            Dim _font1 As MikroFont = FontManager.GetFont(FontManager.FontName.TahomaReg7)
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, 0, 0, False)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawText(Microsoft.SPOT.MikroBitmap,System.String,MBN.Modules.MikroFont,Microsoft.SPOT.Presentation.Media.MikroColor,MBN.Modules.Rect,System.Boolean)">
+            <summary>
+            Draws text with an transparent background on the drawing surface of the canvas within the confines of the supplied <see cref="T:MBN.Modules.Rect"/> structure.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="text">The Text to render to the OLED Display.</param>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> to render the text with.</param>
+            <param name="textColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> to use for rendering the text.</param>
+            <param name="rect">The <see cref="T:MBN.Modules.Rect"/> area of the MikroBitmap in which to render the text.</param>
+            <param name="center">Optional - Horizontally centers the text within the confines of the supplied dimensions if true, otherwise the text will be left justified.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear(KnownColors.White);
+            MikroFont _font1 = FontManager.GetFont(FontManager.FontName.TahomaReg7);
+            Rect myRect = new Rect(0, 0, 96, 48);
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, myRect);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear(KnownColors.White)
+            Dim _font1 As MikroFont = FontManager.GetFont(FontManager.FontName.TahomaReg7)
+            Dim myRect As New Rect(0, 0, 96, 48)
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, myRect)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawText(Microsoft.SPOT.MikroBitmap,System.String,MBN.Modules.MikroFont,Microsoft.SPOT.Presentation.Media.MikroColor,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+             <summary>
+             Draws text with an opaque background on the drawing surface of the canvas within the confines of the supplied dimensions.
+             </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="text">The Text to render to the OLED Display.</param>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> to render the text with.</param>
+            <param name="textColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> to use for rendering the text.</param>
+            <param name="backColor">The background <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> for the rendered text.</param>
+            <param name="x">The X dimension of the of the MikroBitmap to which to render the text.</param>
+            <param name="y">The Y&gt; dimension of the MikroBitmap to which to render the text.</param>
+            <param name="width">The Width dimension of the MikroBitmap to render the text.</param>
+            <param name="height">The Height dimension of the MikroBitmap to render the text.</param>
+            <param name="center">Optional - If True, the text will be horizontally centered within the confines of the supplied <see cref="T:MBN.Modules.Rect"/>, otherwise the text will be left justified.</param>
+            <example>Example usage:
+             <code language="C#">
+            _oled.Canvas.Clear(KnownColors.White);
+            MikroFont _font1 = FontManager.GetFont(FontManager.FontName.TahomaReg7);
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, KnownColors.Red, 0, 0, 96, 48);
+            _oled.Flush();
+             </code>
+             <code language="VB">
+            _oled.Canvas.Clear(KnownColors.White)
+            Dim _font1 As MikroFont = FontManager.GetFont(FontManager.FontName.TahomaReg7)
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, KnownColors.Red, 0, 0, 96, 48)
+            _oled.Flush()	
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawText(Microsoft.SPOT.MikroBitmap,System.String,MBN.Modules.MikroFont,Microsoft.SPOT.Presentation.Media.MikroColor,Microsoft.SPOT.Presentation.Media.MikroColor,MBN.Modules.Rect,System.Boolean)">
+             <summary>
+             Draws text with an opaque background on the drawing surface of the canvas within the confines of the supplied dimensions.
+             </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="text">The Text to render to the OLED Display.</param>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> to render the text with.</param>
+            <param name="textColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> to use for rendering the text.</param>
+            <param name="backColor">The background <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> for the rendered text.</param>
+            <param name="rect">The <see cref="T:MBN.Modules.Rect"/> in which to render the text.</param>
+            <param name="center">Optional - Horizontally centers the text within the confines of the supplied dimensions if true, otherwise the text will be left justified.</param>
+            <example>Example usage:
+             <code language="C#">
+            _oled.Canvas.Clear(KnownColors.White);
+            MikroFont _font1 = FontManager.GetFont(FontManager.FontName.TahomaReg7);
+            Rect myRect = new Rect(0, 0, 96, 48);
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, KnownColors.Red, myRect);
+            _oled.Flush();
+             </code>
+             <code language="VB">
+            _oled.Canvas.Clear(KnownColors.White)
+            Dim myRect as Rect = New Rect(0, 0, 96, 48)
+            _oled.Canvas.DrawText("0123AaBb", _font1, KnownColors.Blue, KnownColors.Red, myRect)
+            _oled.Flush()	
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawLine(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a line to the drawing surface of the canvas at the specified coordinates.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="color">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> to use for rendering the line.</param>
+            <param name="x1">The starting X coordinate to start drawing the line.</param>
+            <param name="y1">The starting Y coordinate to start drawing the line.</param>
+            <param name="x2">The ending X coordinate to end drawing the line.</param>
+            <param name="y2">The ending Y coordinate to end drawing the line.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear( );
+            _oled.Canvas.DrawLine(KnownColors.White, 0, 10, 96, 10);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear( )
+            _oled.Canvas.DrawLine(KnownColors.White, 0, 10, 96, 10)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawRectangle(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,MBN.Modules.Rect)">
+            <summary>
+            Draws a hollow Rectangle to the drawing surface of the canvas at the specified rectangle.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="outlineColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.MikroColor"/> of the outline for the rectangle.</param>
+            <param name="rect">The <see cref="T:MBN.Modules.Rect"/> location of the MikroBitmap to render the Rectangle.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear();
+            Rect myRect = new Rect(0, 0, 96, 48);
+            _oled.Canvas.DrawRectangle(KnownColors.Red, myRect);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear()
+            Dim myRect As Rect = new Rect(0, 0, 96, 48)
+            _oled.Canvas.DrawRectangle(KnownColors.Red, myRect)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawRectangle(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a hollow Rectangle to the drawing surface of the canvas at the specified at the specified coordinates.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="outlineColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the outline for the rectangle.</param>
+            <param name="x">The X dimension of the of the MikroBitmap to which to render the rectangle.</param>
+            <param name="y">The Y&gt; dimension of the MikroBitmap to which to render the rectangle.</param>
+            <param name="width">The Width dimension of the MikroBitmap to render the rectangle.</param>
+            <param name="height">The Height dimension of the MikroBitmap to render the rectangle.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear();
+            _oled.Canvas.DrawRectangle(KnownColors.Red, 0, 0, 96, 16);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear()
+            _oled.Canvas.DrawRectangle(KnownColors.Red, 0, 0, 96, 16)
+            _oled.Flush();
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawRectangle(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,Microsoft.SPOT.Presentation.Media.MikroColor,MBN.Modules.Rect)">
+            <summary>
+            Draws a filled Rectangle to the drawing surface of the canvas at the specified rectangle.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="outlineColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the outline for the rectangle.</param>
+            <param name="fillColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> to fill the rectangle with.</param>
+            <param name="rect">The <see cref="T:MBN.Modules.Rect"/> location of the MikroBitmap to render the Rectangle.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear();
+            Rect myRect = new Rect(0, 0, 96, 48);
+            _oled.Canvas.DrawRectangle(KnownColors.Red, KnownColors.Red, myRect);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear()
+            Dim myRect As Rect = new Rect(0, 0, 96, 48)
+            _oled.Canvas.DrawRectangle(KnownColors.Red, KnownColors.Red, myRect);
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawRectangle(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a filled Rectangle to the drawing surface of the canvas at the specified at the specified coordinates.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="outlineColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the outline for the rectangle.</param>
+            <param name="fillColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> to fill the rectangle with.</param>
+            <param name="x">The X dimension of the of the MikroBitmap to which to render the rectangle.</param>
+            <param name="y">The Y&gt; dimension of the MikroBitmap to which to render the rectangle.</param>
+            <param name="width">The Width dimension of the MikroBitmap to render the rectangle.</param>
+            <param name="height">The Height dimension of the MikroBitmap to render the rectangle.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear();
+            _oled.Canvas.DrawRectangle(KnownColors.Red, KnownColors.Red, 0, 0, 96, 16);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear()
+            _oled.Canvas.DrawRectangle(KnownColors.Red, KnownColors.Red, 0, 0, 96, 16)
+            _oled.Flush();
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawRectangle(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,Microsoft.SPOT.Presentation.Media.MikroColor,Microsoft.SPOT.Presentation.Media.MikroColor,MBN.Modules.Rect,System.Boolean)">
+            <summary>
+            Draws a filled Rectangle with a gradient and outline to the drawing surface of the canvas at the specified rectangle.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="outlineColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> for the outline of the rectangle.</param>
+            <param name="outlineWidth">The thickness in pixels of the outline of the rectangle.</param>
+            <param name="gradientStartColor">The starting <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the gradient to fill the rectangle with.</param>
+            <param name="gradientEndColor">The ending <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the gradient to fill the rectangle with.</param>
+            <param name="rect">The <see cref="T:MBN.Modules.Rect"/> location of the MikroBitmap to render the Rectangle.</param>
+            <param name="horizontal">If true, the gradient will be drawn horizontally, if false, it will be drawn vertically.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear();
+            Rect myRect = new Rect(0, 0, _oled.CanvasWidth, _oled.CanvasHeight);
+            _oled.Canvas.DrawRectangle(KnownColors.White, 2, KnownColors.Blue, KnownColors.Red, myRect, true);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear()
+            Dim myRect As Rect = new Rect(0, 0, _oled.CanvasWidth, _oled.CanvasHeight)
+            _oled.Canvas.DrawRectangle(KnownColors.White, 2, KnownColors.Blue, KnownColors.Red, myRect, true)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawRectangle(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,Microsoft.SPOT.Presentation.Media.MikroColor,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Draws a filled Rectangle with a gradient and outline to the drawing surface of the canvas at the specified coordinates.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="outlineColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> for the outline of the rectangle.</param>
+            <param name="outlineWidth">The thickness in pixels of the outline of the rectangle.</param>
+            <param name="gradientStartColor">The starting <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the gradient to fill the rectangle with.</param>
+            <param name="gradientEndColor">The ending <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the gradient to fill the rectangle with.</param>
+            <param name="x">The X dimension of the of the MikroBitmap to which to render the rectangle.</param>
+            <param name="y">The Y&gt; dimension of the MikroBitmap to which to render the rectangle.</param>
+            <param name="width">The Width dimension of the MikroBitmap to render the rectangle.</param>
+            <param name="height">The Height dimension of the MikroBitmap to render the rectangle.</param>
+            <param name="horizontal">If true, the gradient will be drawn horizontally, if false, it will be drawn vertically.</param>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear();
+            _oled.Canvas.DrawRectangle(KnownColors.White, 2, KnownColors.Blue, KnownColors.Red, 0, 0, _oled.CanvasWidth, _oled.CanvasHeight, true);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear()
+            _oled.Canvas.DrawRectangle(KnownColors.White, 2, KnownColors.Blue, KnownColors.Red, 0, 0, _oled.CanvasWidth, _oled.CanvasHeight, True)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.FillRectangle(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,MBN.Modules.Rect)">
+            <summary>
+            Fills a rectangular area with the specified MikroColor.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="fillcolor">The <see cref="T:Microsoft.SPOT.Presentation.Media.MikroColor"/> used to fill with.</param>
+            <param name="rect">The rectangular area to fill.</param>
+            <returns>True if successful, otherwise false.</returns>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear();
+            Rect myRect = new Rect(0, 0, 96, 48);
+            _oled.Canvas.FillRectangle(KnownColors.Red, myRect);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear()
+            Dim myRect As Rect = new Rect(0, 0, 96, 48)
+            _oled.Canvas.FillRectangle(KnownColors.Red, myRect)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawEllipse(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Renders a hollow ellipse on the MikroBitmap object at the specified location.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="outlineColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the outline of the ellipse.</param>
+            <param name="centerX">The center X dimension to render the ellipse on the MikroBitmap.</param>
+            <param name="centerY">The center Y dimension to render the ellipse on the MikroBitmap.</param>
+            <param name="xRadius">The X radius of the ellipse.</param>
+            <param name="yRadius">The Y radius of the ellipse.</param>
+            <remarks>To draw a perfect circle, set the xRadius and yRadius equal.</remarks>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear();
+            _oled.Canvas.DrawEllipse(KnownColors.White, 48, 48, 20, 20);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear()
+            _oled.Canvas.DrawEllipse(KnownColors.White, 48, 48, 20, 20)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawEllipse(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Renders a filled ellipse on the MikroBitmap object at the specified location.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="outlineColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the outline of the ellipse.</param>
+            <param name="fillColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the fill textColor of the ellipse.</param>
+            <param name="centerX">The center X dimension to render the ellipse on the MikroBitmap.</param>
+            <param name="centerY">The center Y dimension to render the ellipse on the MikroBitmap.</param>
+            <param name="xRadius">The X radius of the ellipse.</param>
+            <param name="yRadius">The Y radius of the ellipse.</param>
+            <remarks>To draw a perfect circle, set the xRadius and yRadius equal.</remarks>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear();
+            _oled.Canvas.DrawEllipse(KnownColors.White, KnownColors.Blue, 48, 48, 20, 20);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear()
+            _oled.Canvas.DrawEllipse(KnownColors.White, KnownColors.Blue, 48, 48, 20, 20)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.BitmapExtensions.DrawEllipse(Microsoft.SPOT.MikroBitmap,Microsoft.SPOT.Presentation.Media.MikroColor,Microsoft.SPOT.Presentation.Media.MikroColor,Microsoft.SPOT.Presentation.Media.MikroColor,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Renders a  hollow ellipse on the MikroBitmap object at the specified location.
+            </summary>
+            <param name="canvas">The canvas surface to draw on.</param>
+            <param name="outlineColor">The <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the outline of the ellipse.</param>
+            <param name="gradientStartColor">The starting <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the gradient to fill the ellipse with.</param>
+            <param name="gradientEndColor">The ending <see cref="T:Microsoft.SPOT.Presentation.Media.Color"/> of the gradient to fill the ellipse with.</param>
+            <param name="centerX">The center X dimension to render the ellipse on the MikroBitmap.</param>
+            <param name="centerY">The center Y dimension to render the ellipse on the MikroBitmap.</param>
+            <param name="xRadius">The X radius of the ellipse.</param>
+            <param name="yRadius">The Y radius of the ellipse.</param>
+            <remarks>To draw a perfect circle, set the xRadius and yRadius equal.</remarks>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Canvas.Clear();
+            _oled.Canvas.DrawRectangle(KnownColors.White, 2, KnownColors.Blue, KnownColors.Red, 0, 0, _oled.CanvasWidth, _oled.CanvasHeight, true);
+            _oled.Flush();
+            </code>
+            <code language="VB">
+            _oled.Canvas.Clear()
+            _oled.Canvas.DrawRectangle(KnownColors.White, 2, KnownColors.Blue, KnownColors.Red, 0, 0, _oled.CanvasWidth, _oled.CanvasHeight, True)
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="T:Microsoft.SPOT.Presentation.Media.MikroColor">
+            <summary>
+            An abstract class with support for the RGB 565 Color format.
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.MikroColor.B">
+            <summary>
+            The Blue component value
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            MikroColor newColor = new MikroColor(KnownColors.Gray.Value);
+            Debug.Print("newColor B Component Value - " + newColor.B);
+            </code>
+            <code language = "VB">
+            Dim newColor As MikroColor = New MikroColor(KnownColors.Gray.Value)
+            Debug.Print("newColor B Component Value - " <![CDATA[&]]> newColor.B)
+            </code>
+            </example>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.MikroColor.G">
+            <summary>
+            The Green component value
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            MikroColor newColor = new MikroColor(KnownColors.Gray.Value);
+            Debug.Print("newColor G Component Value - " + newColor.G);
+            </code>
+            <code language = "VB">
+            Dim newColor As MikroColor = New MikroColor(KnownColors.Gray.Value)
+            Debug.Print("newColor G Component Value - " <![CDATA[&]]> newColor.G)
+            </code>
+            </example>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.MikroColor.R">
+            <summary>
+            The Red component value
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            MikroColor newColor = new MikroColor(KnownColors.Gray.Value);
+            Debug.Print("newColor R Component Value - " + newColor.R);
+            </code>
+            <code language = "VB">
+            Dim newColor As MikroColor = New MikroColor(KnownColors.Gray.Value)
+            Debug.Print("newColor R Component Value - " <![CDATA[&]]> newColor.R)
+            </code>
+            </example>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.MikroColor.Value">
+            <summary>
+            The 565 Color (BBBBB, GGGGGG, RRRRR) representation of a color
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            MikroColor newColor = new MikroColor(KnownColors.Gray.Value);
+            Debug.Print("newColor Value - " + newColor.Value);
+            </code>
+            <code language = "VB">
+            Dim newColor As MikroColor = New MikroColor(KnownColors.Gray.Value)
+            Debug.Print("newColor Value - " <![CDATA[&]]> newColor.Value)
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.Presentation.Media.MikroColor.#ctor(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.SPOT.Presentation.Media.MikroColor"/> by RGB (8-8-8) component values
+            </summary>
+            <param name="red">The Red component of a RGB color.</param>
+            <param name="green">The Blue component of a RGB color.</param>
+            <param name="blue">The Green component of a RGB color.</param>
+            <example>Example usage:
+            <code language="C#">
+            MikroColor newColor = new MikroColor(128, 128, 128);
+            </code>
+            <code language="VB">
+            Dim newColor As MikroColor = New MikroColor(128, 128, 128)
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.Presentation.Media.MikroColor.#ctor(System.UInt16)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.SPOT.Presentation.Media.MikroColor"/> by RGB (5-6-5) value.
+            </summary>
+            <param name="value">The unsigned short (UInt16) of the RGB color value.</param>
+            <example>Example usage:
+            <code language="C#">
+            MikroColor newColor1 = new MikroColor(KnownColors.Gray.Value);
+            MikroColor newcolr2 = new MikroColor(0x2233);
+            </code>
+            <code language="VB">
+            Dim newColor1 As MikroColor = New MikroColor(KnownColors.Gray.Value)
+            Dim newColor2 As MikroColor = New MikroColor(<![CDATA[&]]>H2233)
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.Presentation.Media.MikroColor.ToString">
+            <summary>
+            Returns the string representation of the <see cref="T:Microsoft.SPOT.Presentation.Media.MikroColor"/>.
+            </summary>
+            <returns>{R, G, B}</returns>
+            <example>Example usage:
+            <code language="C#">
+            MikroColor newColor = new MikroColor(KnownColors.Gray.Value);
+            Debug.Print(newColor.ToString());
+            </code>
+            <code language="VB">
+            MikroColor newColor = new MikroColor(KnownColors.Gray.Value)
+            Debug.Print(newColor.ToString())
+            </code>
+            </example>
+        </member>
+        <member name="T:MBN.Modules.FontManager">
+            <summary>
+            Manages font-related functionality.
+            </summary>
+        </member>
+        <member name="M:MBN.Modules.FontManager.GetFont(MBN.Modules.FontManager.FontName)">
+            <summary>
+            Returns a MikroFont resource specified by a predefined font.
+            </summary>
+            <param name="font">The predefined font</param>
+            <returns>A Font usable by the OLED-C Click driver.</returns>
+            <example>Example usage:
+            <code language = "C#">
+            private static readonly MikroFont _font1 = FontManager.GetFont(FontManager.FontName.TahomaReg7);
+            </code>
+            <code language = "VB">
+            Private Shared ReadOnly _font1 As MikroFont = FontManager.GetFont(FontManager.FontName.TahomaReg7)
+            </code>
+            </example>
+        </member>
+        <member name="T:MBN.Modules.FontManager.FontName">
+            <summary>
+            A set of predefined Fonts of varying sizes (8-24 points).
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.FontManager.FontName.TahomaReg7">
+            <summary>
+            Tahoma 7 point without Extended ASCII Characters
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.FontManager.FontName.TahomaExt7">
+            <summary>
+            Tahoma 7 point with Extended ASCII Characters
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.FontManager.FontName.TahomaReg12">
+            <summary>
+            Tahoma 12 point without Extended ASCII Characters
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.FontManager.FontName.TahomaExt12">
+            <summary>
+            Tahoma 12 point with Extended ASCII Characters
+            </summary>
+        </member>
+        <member name="T:Microsoft.SPOT.Presentation.Media.KnownColors">
+            <summary>
+            A class providing the RGB 565 equivalent of the RGB 888 KnownColors commonly used in the .Net Framework
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.AliceBlue">
+            <summary>
+            AliceBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.AntiqueWhite">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Aqua">
+            <summary>
+            AntiqueWhite
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Aquamarine">
+            <summary>
+            Aquamarine
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Azure">
+            <summary>
+            Azure
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Beige">
+            <summary>
+            Beige
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Bisque">
+            <summary>
+            Bisque
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Black">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.BlanchedAlmond">
+            <summary>
+            BlanchedAlmond
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Blue">
+            <summary>
+            Blue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.BlueViolet">
+            <summary>
+            Brown
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Brown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.BurlyWood">
+            <summary>
+            BurlyWood
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.CadetBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Charcoal">
+            <summary>
+            Charcoal
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.CharcoalDust">
+            <summary>
+            Charcoal Dust
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Chartreuse">
+            <summary>
+            Chartreuse
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Chocolate">
+            <summary>
+            Chocolate
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Coral">
+            <summary>
+            Coral
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.CornflowerBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Cornsilk">
+            <summary>
+            Crimson
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Crimson">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Cyan">
+            <summary>
+            Cyan
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkBlue">
+            <summary>
+            DarkBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkCyan">
+            <summary>
+            DarkCyan
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkGoldenrod">
+            <summary>
+            DarkGoldenrod
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkGray">
+            <summary>
+            DarkGray
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkGreen">
+            <summary>
+            DarkGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkKhaki">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkMagenta">
+            <summary>
+            DarkMagenta
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkOliveGreen">
+            <summary>
+            DarkOliveGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkOrange">
+            <summary>
+            DarkOrange
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkOrchid">
+            <summary>
+            DarkOrchid
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkRed">
+            <summary>
+            DarkRed
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkSalmon">
+            <summary>
+            DarkSalmon
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkSeaGreen">
+            <summary>
+            DarkSeaGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkSlateBlue">
+            <summary>
+            DarkSlateBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkSlateGray">
+            <summary>
+            DarkSlateGray
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkTurquoise">
+            <summary>
+            DarkTurquoise
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DarkViolet">
+            <summary>
+            DarkViolet
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DeepPink">
+            <summary>
+            DeepPink
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DeepSkyBlue">
+            <summary>
+            DeepSkyBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DimGray">
+            <summary>
+            DimGray
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.DodgerBlue">
+            <summary>
+            DodgerBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Firebrick">
+            <summary>
+            Firebrick
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.FloralWhite">
+            <summary>
+            FloralWhite
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.ForestGreen">
+            <summary>
+            ForestGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Fuchsia">
+            <summary>
+            Fuchsia
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Gainsboro">
+            <summary>
+            Gainsboro
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Ghost">
+            <summary>
+            Ghost
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.GhostWhite">
+            <summary>
+            GhostWhite
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Gold">
+            <summary>
+            Gold
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Goldenrod">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Gray">
+            <summary>
+            Gray
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Green">
+            <summary>
+            Green
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.GreenYellow">
+            <summary>
+            GreenYellow
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Honeydew">
+            <summary>
+            Honeydew
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.HotPink">
+            <summary>
+            HotPink
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.IndianRed">
+            <summary>
+            IndianRed
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Indigo">
+            <summary>
+            Indigo
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Ivory">
+            <summary>
+            Ivory
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Khaki">
+            <summary>
+            Khaki
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Lavender">
+            <summary>
+            Lavender
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LavenderBlush">
+            <summary>
+            LavenderBlush
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LawnGreen">
+            <summary>
+            LawnGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LemonChiffon">
+            <summary>
+            LemonChiffon
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightBlue">
+            <summary>
+            LightBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightCoral">
+            <summary>
+            LightCoral
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightCyan">
+            <summary>
+            LightCyan
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightGoldenrodYellow">
+            <summary>
+            LightGoldenrodYellow
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightGray">
+            <summary>
+            LightGray
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightGreen">
+            <summary>
+            LightGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightPink">
+            <summary>
+            LightPink
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightSalmon">
+            <summary>
+            LightSalmon
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightSeaGreen">
+            <summary>
+            LightSeaGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightSkyBlue">
+            <summary>
+            LightSkyBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightSlateGray">
+            <summary>
+            LightSlateGray
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightSteelBlue">
+            <summary>
+            LightSteelBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LightYellow">
+            <summary>
+            LightYellow
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Lime">
+            <summary>
+            Lime
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.LimeGreen">
+            <summary>
+            LimeGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Linen">
+            <summary>
+            Linen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Magenta">
+            <summary>
+            Magenta
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Maroon">
+            <summary>
+            Maroon
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MediumAquamarine">
+            <summary>
+            MediumAquamarine
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MediumBlue">
+            <summary>
+            MediumBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MediumOrchid">
+            <summary>
+            MediumOrchid
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MediumPurple">
+            <summary>
+            MediumPurple
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MediumSeaGreen">
+            <summary>
+            MediumSeaGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MediumSlateBlue">
+            <summary>
+            MediumSlateBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MediumSpringGreen">
+            <summary>
+            MediumSpringGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MediumTurquoise">
+            <summary>
+            MediumTurquoise
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MediumVioletRed">
+            <summary>
+            MediumVioletRed
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MidnightBlue">
+            <summary>
+            MidnightBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MintCream">
+            <summary>
+            MintCream
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.MistyRose">
+            <summary>
+            MistyRose
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Moccasin">
+            <summary>
+            Moccasin
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.NavajoWhite">
+            <summary>
+            NavajoWhite
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Navy">
+            <summary>
+            Navy
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.OldLace">
+            <summary>
+            OldLace
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Olive">
+            <summary>
+            Olive
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.OliveDrab">
+            <summary>
+            OliveDrab
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Orange">
+            <summary>
+            Orange
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.OrangeRed">
+            <summary>
+            OrangeRed
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Orchid">
+            <summary>
+            Orchid
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.PaleGoldenrod">
+            <summary>
+            PaleGoldenrod
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.PaleGreen">
+            <summary>
+            PaleGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.PaleTurquoise">
+            <summary>
+            PaleTurquoise
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.PaleVioletRed">
+            <summary>
+            PaleVioletRed
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.PapayaWhip">
+            <summary>
+            PapayaWhip
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.PeachPuff">
+            <summary>
+            PeachPuff
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Peru">
+            <summary>
+            Peru
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Pink">
+            <summary>
+            Pink
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Plum">
+            <summary>
+            Plum
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.PowderBlue">
+            <summary>
+            PowderBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Purple">
+            <summary>
+            Purple
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Red">
+            <summary>
+            Red
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.RosyBrown">
+            <summary>
+            RosyBrown
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.RoyalBlue">
+            <summary>
+            RoyalBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.SaddleBrown">
+            <summary>
+            SaddleBrown
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Salmon">
+            <summary>
+            Salmon
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.SandyBrown">
+            <summary>
+            SandyBrown
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.SeaGreen">
+            <summary>
+            SeaGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.SeaShell">
+            <summary>
+            SeaShell
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Sienna">
+            <summary>
+            Sienna
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Silver">
+            <summary>
+            Silver
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.SkyBlue">
+            <summary>
+            SkyBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.SlateBlue">
+            <summary>
+            SlateBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.SlateGray">
+            <summary>
+            SlateGray
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Snow">
+            <summary>
+            Snow
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.SpringGreen">
+            <summary>
+            SpringGreen
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.SteelBlue">
+            <summary>
+            SteelBlue
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Tan">
+            <summary>
+            Tan
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Teal">
+            <summary>
+            Teal
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Thistle">
+            <summary>
+            Thistle
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Tomato">
+            <summary>
+            Tomato
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Turquoise">
+            <summary>
+            Turquoise
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Violet">
+            <summary>
+            Violet
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Wheat">
+            <summary>
+            Wheat
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.White">
+            <summary>
+            White
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.WhiteSmoke">
+            <summary>
+            WhiteSmoke
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.Yellow">
+            <summary>
+            Yellow
+            </summary>
+        </member>
+        <member name="F:Microsoft.SPOT.Presentation.Media.KnownColors.YellowGreen">
+            <summary>
+            YellowGreen
+            </summary>
+        </member>
+        <member name="T:MBN.Modules.MikroFont">
+            <summary>
+            An abstract Font class used for drawing text to the OLED-C Display. 
+            </summary>
+        </member>
+        <member name="M:MBN.Modules.MikroFont.#ctor(System.Byte[])">
+            <summary>
+            Creates a new MikroFont from raw data. for example, from an embedded resource.
+            </summary>
+            <param name="data">The MikroFont data</param>
+        </member>
+        <member name="P:MBN.Modules.MikroFont.ExtendedCharacterSet">
+            <summary>
+            If the MikroFont contains the Extended ASCII Character Set this property will be true, otherwise false.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            private static readonly MikroFont _font1 = FontManager.GetFont(FontManager.FontName.TahomaExt7);
+            Debug.Print("Has Extended ASCII Characters? " + _font1.ExtendedCharacterSet);
+            </code>
+            <code language = "VB">
+            Private Shared ReadOnly _font1 As MikroFont = FontManager.GetFont(FontManager.FontName.TahomaExt7)
+            Debug.Print("Has Extended ASCII Characters? " <![CDATA[&]]> _font1.ExtendedCharacterSet.ToString())
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.MikroFont.FontHeight">
+            <summary>
+            Gets the Height of the MikroFont
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            private static readonly MikroFont _font1 = FontManager.GetFont(FontManager.FontName.TahomaExt7);
+            Debug.Print("Font Height - " + _font1.FontHeight);
+            </code>
+            <code language = "VB">
+            Private Shared ReadOnly _font1 As MikroFont = FontManager.GetFont(FontManager.FontName.TahomaExt7)
+            Debug.Print("Font Height - " <![CDATA[&]]> _font1.FontHeight.ToString())
+            </code>
+            </example>
+        </member>
+        <member name="T:Microsoft.SPOT.FontExtensions">
+            <summary>
+            Extension methods for the MikroFont object.
+            </summary>
+        </member>
+        <member name="M:Microsoft.SPOT.FontExtensions.ComputeExtent(MBN.Modules.MikroFont,System.String,System.Int32@,System.Int32@)">
+            <summary>
+            Computes the width and height of a specified line of text
+            </summary>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> used to ComputeExtent.</param>
+            <param name="text">The text you want to measure.</param>
+            <param name="width">[OutAttribute] The width of the specified text.</param>
+            <param name="height">[OutAttribute] The height of the specified text.</param>
+            <example>Example usage:
+            <code language="C#">
+            int height, width;
+            _font1.ComputeExtent("MikroBus.Net", out width, out height);
+            Debug.Print("The string size is " + width + "pixels by " + height + " pixels");
+            </code>
+            <code language="VB">
+            Dim height As Integer, width As Integer
+            _font1.ComputeExtent("MikroBus.Net", width, height)
+            Debug.Print("The string size is " <![CDATA[&]]> width <![CDATA[&]]> "pixels by " <![CDATA[&]]> height <![CDATA[&]]> " pixels")
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.FontExtensions.ComputeExtentEx(MBN.Modules.MikroFont,System.String)">
+            <summary>
+            Computes the width and height of a specified line of text
+            </summary>
+            <remarks>This method takes into account multi-line strings with lines separated by an ASCII linefeed character (hex 0A).</remarks>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> used to ComputeExtentEx.</param>
+            <param name="text">The text you want to measure.</param>
+            <returns>The Size structure of the measured text.</returns>
+            <example>Example usage:
+            <code language="C#">
+            var sz = _font1.ComputeExtentEx("MikroBus.Net");
+            Debug.Print("The string size is " + sz.Width + "pixels by " + sz.Height + " pixels");
+            </code>
+            <code language="VB">
+            Dim sz = _font1.ComputeExtentEx("MikroBus.Net")
+            Debug.Print("The string size is " <![CDATA[&]]> sz.Width <![CDATA[&]]> "pixels by " <![CDATA[&]]> sz.Height <![CDATA[&]]> " pixels")
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.FontExtensions.ComputeExtentInRect(MBN.Modules.MikroFont,System.String,System.Int32@,System.Int32@,System.Int32)">
+            <summary>
+            Computes the width and height of a specified line of text to fit inside a Rectangle
+            </summary>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> used to ComputeExtentInRect.</param>
+            <param name="text">The text you want to measure.</param>
+            <param name="width">[OutAttribute] The width of the specified text.</param>
+            <param name="height">[OutAttribute] The height of the specified text.</param>
+            <param name="availableWidth">The Available Width of the Rectangle</param>
+            <example>Example usage:
+            <code language="C#">
+            int height = 0, width = 0;
+            _font1.ComputeExtentInRect("MikroBus.Net", out width, out height, 96);
+            Debug.Print("The string size is " + width + "pixels by " + height + " pixels");
+            </code>
+            <code language="VB">
+            Dim height As Integer = 0, width As Integer = 0
+            _font1.ComputeExtentInRect("MikroBus.Net", width, height, 96)
+            Debug.Print("The string size is " <![CDATA[&]]> width <![CDATA[&]]> "pixels by " <![CDATA[&]]> height <![CDATA[&]]> " pixels")
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.FontExtensions.MeasureCharacter(MBN.Modules.MikroFont,System.Char)">
+            <summary>
+             Returns the height and width the specified character will occupy when rendered with this MikroFont.
+            </summary>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> used to measure a single character with.</param>
+            <param name="character">The character to measure.</param>
+            <returns>The <see cref="T:MBN.Modules.Size"/> that the character will occupy when rendered with this MikroFont.</returns>
+            <example>Example usage:
+            <code language="C#">
+            var sz = _font1.MeasureCharacter('M');
+            Debug.Print("The size of the character is " + sz.Width + "pixels by " + sz.Height + " pixels");
+            </code>
+            <code language="VB">
+            Dim sz = _font1.MeasureCharacter("M"c)
+            Debug.Print("The size of the character is " <![CDATA[&]]> sz.Width <![CDATA[&]]> "pixels by " <![CDATA[&]]> sz.Height <![CDATA[&]]> " pixels")
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.SPOT.FontExtensions.MeasureString(MBN.Modules.MikroFont,System.String)">
+            <summary>
+             Returns the height and width the specified string will occupy when rendered with this MikroFont.
+            </summary>
+            <param name="font">The <see cref="T:MBN.Modules.MikroFont"/> used to measure a string with..</param>
+            <param name="text">The textural string of characters to measure.</param>
+            <returns>The <see cref="T:MBN.Modules.Size"/> that the string will occupy when rendered with this MikroFont.</returns>
+            <example>Example usage:
+            <code language="C#">
+            var sz = _font1.MeasureString("MikroBus.Net");
+            Debug.Print("The size of the string is " + sz.Width + "pixels by " + sz.Height + " pixels");
+            </code>
+            <code language="VB">
+            Dim sz = _font1.MeasureString("MikroBus.Net")
+            Debug.Print("The size of the string is " <![CDATA[&]]> sz.Width <![CDATA[&]]> "pixels by " <![CDATA[&]]> sz.Height <![CDATA[&]]> " pixels")
+            </code>
+            </example>
+        </member>
+        <member name="T:MBN.Modules.Point">
+            <summary>
+            A Structure containing  an objects X and Y location of a specific point
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.Point.X">
+            <summary>
+            The X location of the point
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Point pt = new Point(10, 20);
+            pt.X = 20;
+            Debug.Print("pt.X = " + pt.X);
+            </code>
+            <code language = "VB">
+            Dim pt As Point = New Point(10, 20)
+            pt.X = 20
+            Debug.Print("pt.X = " <![CDATA[&]]> pt.X)
+            </code>
+            </example>
+        </member>
+        <member name="F:MBN.Modules.Point.Y">
+            <summary>
+            The Y location of the point
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Point pt = new Point(10, 20);
+            pt.Y = 20;
+            Debug.Print("pt.Y = " + pt.Y);
+            </code>
+            <code language = "VB">
+            Dim pt As Point = New Point(10, 20)
+            pt.X = 20
+            Debug.Print("pt.Y = " <![CDATA[&]]> pt.Y)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Point.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new point structure
+            </summary>
+            <param name="x">The X Location</param>
+            <param name="y">The Y Location</param>
+            <example>Example usage:
+            <code language = "C#">
+            Point pt = new Point(10, 20);
+            </code>
+            <code language = "VB">
+            Dim pt As Point = New Point(10, 20)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Point.ToString">
+            <summary>
+            Returns the string representation of the Point structure
+            </summary>
+            <returns>{X, Y}</returns>
+            <example>Example usage:
+            <code language = "C#">
+            Point pt = new Point(10, 20);
+            Debug.Print("pt = " + pt.ToString());
+            </code>
+            <code language = "VB">
+            Dim pt As Point = New Point(10, 20)
+            Debug.Print("pt = " <![CDATA[&]]> pt.ToString())
+            </code>
+            </example>
+        </member>
+        <member name="T:MBN.Modules.Rect">
+            <summary>
+            Describes the width, height, and location of a rectangle. 
+            </summary>
+        </member>
+        <member name="M:MBN.Modules.Rect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the Rect structure that has the specified x-coordinate, y-coordinate, width, and height. 
+            </summary>
+            <param name="x">The x-coordinate of the top-left corner of the rectangle.</param>
+            <param name="y">The y-coordinate of the top-left corner of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(0, 0, 96, 96);
+            </code>
+            <code language = "VB">
+            Dim myRect as Rect = New Rect(0, 0, 96, 96)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.Clone">
+            <summary>
+            Clones this rectangle.
+            </summary>
+            <returns>The cloned Rectangle object.</returns>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(0, 0, 96, 96);
+            var myRectClone = myRect.Clone();
+            </code>
+            <code language = "VB">
+            Dim myRect As Rect = New Rect(0, 0, 96, 96)
+            Dim myRectClone As Rect = myRect.Clone()
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.Combine(MBN.Modules.Rect)">
+            <summary>
+            Adds the area of a second Rectangle to an existing Rectangle
+            </summary>
+            <param name="newRect">The Rectangle to add</param>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect1 = new Rect(0, 0, 96, 48);
+            Rect myRect2 = new Rect(0, 49, 96, 48);
+            myRect1.Combine(myRect2);
+            </code>
+            <code language = "VB">
+            Dim myRect1 As Rect = New Rect(0, 0, 96, 96)
+            Dim myRect2 As Rect = New Rect(0, 49, 96, 48)
+            myRect1.Combine(myRect2)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.Combine(MBN.Modules.Rect,MBN.Modules.Rect)">
+            <summary>
+            Returns the combination of two Rectangles
+            </summary>
+            <param name="region1">Rectangle 1 to combine.</param>
+            <param name="region2">Rectangle 2 to combine.</param>
+            <returns>The combined Rectangle</returns>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect1 = new Rect(0, 0, 96, 48);
+            Rect myRect2 = new Rect(0, 49, 96, 48);
+            Rect myRectcombined = new Rect().Combine(myRect1, myRect2);
+            </code>
+            <code language = "VB">
+            Dim myRect1 As Rect = New Rect(0, 0, 96, 96)
+            Dim myRect2 As Rect = New Rect(0, 49, 96, 48)
+            Dim myRectCombined As Rect = New Rect().Combine(myRect1, myRect2)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.Contains(System.Int32,System.Int32)">
+            <summary>
+            Indicates whether the rectangle contains the specified x-coordinate and y-coordinate. 
+            </summary>
+            <param name="pointX">X location</param>
+            <param name="pointY">Y location</param>
+            <returns>True if the Point is inside the bounds of the Rectangle</returns>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(0, 0, 96, 48);
+            bool doesContain = myRect.Contains(4, 13);
+            Debug.Print("MyRect contains my Point? " + doesContain);
+            </code>
+            <code language = "VB">
+            Dim myRect As New Rect(0, 0, 96, 48)
+            Dim doesContain As Boolean = myRect.Contains(4, 13)
+            Debug.Print("MyRect contains my Point? " <![CDATA[&]]> doesContain)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.Contains(MBN.Modules.Point)">
+            <summary>
+            Indicates whether the rectangle contains the specified point.
+            </summary>
+            <param name="e">Point to check</param>
+            <returns>True if the Point is inside the bounds of the Rectangle</returns>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(0, 0, 96, 48);
+            Point myPoint = new Point(10, 10);
+            Debug.Print("MyRect contains my Point? " + myRect.Contains(myPoint));
+            </code>
+            <code language = "VB">
+            Dim myRect As New Rect(0, 0, 96, 48)
+            Dim myPoint As New Point(10, 10)
+            Debug.Print("MyRect contains my Point? " <![CDATA[&]]> myRect.Contains(myPoint))
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.Intersects(MBN.Modules.Rect)">
+            <summary>
+            Determines whether the object specified by the parameters intersects with this Rectangle object.
+            </summary>
+            <param name="area">Rectangle to check</param>
+            <returns>True if the two Rectangles intersect</returns>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect1 = new Rect(0, 0, 96, 48);
+            Rect myRect2 = new Rect(0, 47, 96, 48);
+            bool intersects = myRect1.Intersects(myRect2);
+            Debug.Print("MyRect1 Intersects myRect2? " + intersects);
+            </code>
+            <code language = "VB">
+            Dim myRect1 As New Rect(0, 0, 96, 48)
+            Dim myRect2 As New Rect(0, 47, 96, 48)
+            Dim intersects As Boolean = myRect1.Intersects(myRect2)
+            Debug.Print("MyRect1 Intersects myRect2? " <![CDATA[&]]> intersects)		/// </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.Inflate(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Inflates a Rect structure by the supplied dimensions.
+            </summary>
+            <param name="marginX">The X amount to add to the Rect structure.</param>
+            <param name="marginY">The Y amount to add to the Rect structure.</param>
+            <param name="marginWidth">The Width amount to add to the Rect structure.</param>
+            <param name="marginHeight">The Height amount to add to the Rect structure.</param>
+            <returns>A Rect structure with the new dimensions.</returns>
+            <remarks>There is no error checking done with this method. Make sure that the passed parameters will result in a valid Rect structure. Also, this does not modify the original Rect structure.</remarks>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(10, 10, 76, 48);
+            Rect myNewRect = myRect.Inflate(0, 10, 0, 0);
+            bool isEqual = myRect.Equals(myNewRect);
+            Debug.Print("Is Equal? " + isEqual);
+            </code>
+            <code language = "VB">
+            Dim myRect As New Rect(10, 10, 76, 48)
+            Dim myNewRect = myRect.Inflate(0, 10, 0, 0)
+            Dim isEqual = myRect.Equals(myNewRect)
+            Debug.Print("Is Equal? " <![CDATA[&]]> isEqual)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.Deflate(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Deflates a Rect structure by the supplied dimensions.
+            </summary>
+            <param name="marginX">The X amount to subtract to the Rect structure.</param>
+            <param name="marginY">The Y amount to subtract to the Rect structure.</param>
+            <param name="marginWidth">The Width amount to subtract to the Rect structure.</param>
+            <param name="marginHeight">The Height amount to subtract to the Rect structure.</param>
+            <returns>A Rect structure with the new dimensions.</returns>
+            <remarks>There is no error checking done with this method. Make sure that the passed parameters will result in a valid Rect structure.</remarks>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(10, 10, 76, 48);
+            Rect myNewRect = myRect.Deflate(10, 10, 0, 0);
+            bool isEqual = myRect.Equals(myNewRect);
+            Debug.Print("Is Equal? " + isEqual);
+            </code>
+            <code language = "VB">
+            Dim myRect As New Rect(10, 10, 76, 48)
+            Dim myNewRect = myRect.Inflate(100, 10, 0, 0)
+            Dim isEqual = myRect.Equals(myNewRect)
+            Debug.Print("Is Equal? " <![CDATA[&]]> isEqual)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.Intersection(MBN.Modules.Rect,MBN.Modules.Rect)">
+            <summary>
+            Returns the intersection of two Rectangles
+            </summary>
+            <param name="region1">Rectangle 1</param>
+            <param name="region2">Rectangle 2</param>
+            <returns>The a new Rectangle of the intersection of two rectangles.</returns>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect1 = new Rect(0, 0, 96, 48);
+            Rect myRect2 = new Rect(0, 47, 96, 48);
+            Rect intersection = myRect1.Intersection(myRect1, myRect2);
+            </code>
+            <code language = "VB">
+            Dim myRect1 As New Rect(0, 0, 96, 48)
+            Dim myRect2 As New Rect(0, 47, 96, 48)
+            Dim intersection As Rect = myRect1.Intersection(myRect1, myRect2)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.Equals(MBN.Modules.Rect)">
+            <summary>
+            Compares two Rect structures to determine whether the left expression is not equal to the right expression.
+            </summary>
+            <param name="rect1">The first Rect structure to compare for equality</param>
+            <returns>Returns true if the values of its operands are equal, false otherwise.</returns>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(10, 10, 76, 48);
+            Rect myNewRect = myRect.Inflate(0, 10, 0, 0);
+            bool isEqual = myRect.Equals(myNewRect);
+            Debug.Print("Is Equal? " + isEqual);
+            </code>
+            <code language = "VB">
+            Dim myRect As New Rect(10, 10, 76, 48)
+            Dim myNewRect = myRect.Inflate(0, 10, 0, 0)
+            Dim isEqual = myRect.Equals(myNewRect)
+            Debug.Print("Is Equal? " <![CDATA[&]]> isEqual)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Rect.ToString">
+            <summary>
+            Returns the string representation of the Rectangle
+            </summary>
+            <returns>{X, Y, width, height}</returns>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(10, 10, 76, 48);
+            Debug.Print(myRect.ToString());
+            </code>
+            <code language = "VB">
+            Dim myRect As New Rect(10, 10, 76, 48)
+            Debug.Print(myRect.ToString())
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.Rect.X">
+            <summary>
+            Gets or sets the x-axis value of the left side of the rectangle. 
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(0, 0, 96, 96);
+            Debug.Print("myRect X is " + myRect.X); 
+            </code>
+            <code language = "VB">
+            Dim myRect as Rect = New Rect(0, 0, 96, 96)
+            Debug.Print("myRect Width is " <![CDATA[&]]> myRect.X) 
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.Rect.Y">
+            <summary>
+            Gets or sets the y-axis value of the top side of the rectangle. 
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(0, 0, 96, 96);
+            Debug.Print("myRect Y is " + myRect.Y); 
+            </code>
+            <code language = "VB">
+            Dim myRect as Rect = New Rect(0, 0, 96, 96)
+            Debug.Print("myRect Width is " <![CDATA[&]]> myRect.Y) 
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.Rect.Width">
+            <summary>
+            Gets or sets the width of the rectangle. 
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(0, 0, 96, 96);
+            Debug.Print("myRect Width is " + myRect.Width); 
+            </code>
+            <code language = "VB">
+            Dim myRect as Rect = New Rect(0, 0, 96, 96)
+            Debug.Print("myRect Width is " <![CDATA[&]]> myRect.Width) 
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.Rect.Height">
+            <summary>
+            Gets or sets the height of the rectangle. 
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(0, 0, 96, 96);
+            Debug.Print("myRect Height is " + myRect.Height); 
+            </code>
+            <code language = "VB">
+            Dim myRect as Rect = New Rect(0, 0, 96, 96)
+            Debug.Print("myRect Height is " <![CDATA[&]]> myRect.Height) 
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.Rect.Location">
+            <summary>
+            Gets or sets the location (top left corner) of the Rect Structure.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(10, 10, 76, 48);
+            Debug.Print("myRect Location - " + myRect.Location.ToString());
+            </code>
+            <code language = "VB">
+            Dim myRect As New Rect(10, 10, 76, 48)
+            Debug.Print("myRect Location - " <![CDATA[&]]> myRect.Location.ToString())
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.Rect.Size">
+            <summary>
+            Get the Size of the Rect structure.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Rect myRect = new Rect(10, 10, 76, 48);
+            Debug.Print("myRect Size - " + myRect.Size.ToString());
+            </code>
+            <code language = "VB">
+            Dim myRect As New Rect(10, 10, 76, 48)
+            Debug.Print("myRect Size - " <![CDATA[&]]> myRect.Size.ToString())
+            </code>
+            </example>
+        </member>
+        <member name="T:MBN.Modules.Size">
+            <summary>
+            Stores an ordered pair of integers, which specify a Height and Width.
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.Size.Height">
+            <summary>
+            Gets the vertical component of this Size structure.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Size sz = new Size(10, 10);
+            Debug.Print("Height? " + sz.Height);
+            </code>
+            <code language = "VB">
+            Dim sz As Size = New Size(10, 10)
+            Debug.Print("Height? " <![CDATA[&]]> sz.Height)
+            </code>
+            </example>
+        </member>
+        <member name="F:MBN.Modules.Size.Width">
+            <summary>
+            Gets or sets the horizontal component of this Size structure.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Size sz = new Size(10, 10);
+            Debug.Print("Width? " + sz.Width);
+            </code>
+            <code language = "VB">
+            Dim sz As Size = New Size(10, 10)
+            Debug.Print("Width? " <![CDATA[&]]> sz.Width)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Size.#ctor(System.Int32,System.Int32)">
+            <summary>
+             Initializes a new instance of the Size structure from the specified dimensions.
+            </summary>
+            <param name="width">The width of the new Size structure.</param>
+            <param name="height">The height of the new size structure.</param>
+            <example>Example usage:
+            <code language = "C#">
+            Size sz = new Size(10, 10);
+            </code>
+            <code language = "VB">
+            Dim sz As Size = New Size(10, 10)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Size.Grow(System.Int32,System.Int32)">
+            <summary>
+            Adds height and width to existing size structure
+            </summary>
+            <param name="addWidth">The height in which to grow the Size structure.</param>
+            <param name="addHeight">The width in which to grow the Size structure.</param>
+            <example>Example usage:
+            <code language = "C#">
+            Size sz = new Size(10, 10);
+            sz.Grow(10, 10);
+            Debug.Print("New Size? " + sz.ToString());
+            </code>
+            <code language = "VB">
+            Dim sz As New Size(10, 10)
+            sz.Grow(10, 10)
+            Debug.Print("New Size? " <![CDATA[&]]> sz.ToString())
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Size.Shrink(System.Int32,System.Int32)">
+            <summary>
+            Subtracts height and width from existing size structure
+            </summary>
+            <param name="subtractWidth">The height in which to shrink the Size structure.</param>
+            <param name="subtractHeight">The width in which to shrink the Size structure.</param>
+            <example>Example usage:
+            <code language = "C#">
+            Size sz = new Size(20, 20);
+            sz.Shrink(10, 10);
+            Debug.Print("New Size? " + sz.ToString());
+            </code>
+            <code language = "VB">
+            Dim sz As New Size(20, 20)
+            sz.Shrink(10, 10)
+            Debug.Print("New Size? " <![CDATA[&]]> sz.ToString())
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.Size.ToString">
+            <summary>
+            Returns the string representation of the Size structure.
+            </summary>
+            <returns>{width, height}</returns>
+            <example>Example usage:
+            <code language = "C#">
+            Size sz = new Size(10, 10);
+            sz.Grow(10, 10);
+            Debug.Print("New Size? " + sz.ToString());
+            </code>
+            <code language = "VB">
+            Dim sz As New Size(10, 10)
+            sz.Grow(10, 10)
+            Debug.Print("New Size? " <![CDATA[&]]> sz.ToString())
+            </code>
+            </example>
+        </member>
+        <member name="T:MBN.Modules.OLEDCClick">
+            <summary>
+             Main class for the OLED-C Click driver
+             <para><b>Pins used:</b> Mosi, Miso, Sck, Cs, Rst, Pwm, An</para>
+             <para><b>This module is an SPIDevice</b></para>
+             <para><b>References required:</b> MikroBus.Net, Microsoft.SPOT.Graphics, Microsoft.SPOT.Native, Microsoft.Spot.Hardware, mscorlib</para>
+             </summary>
+             <example>
+             <code language="C#">
+             using MBN;
+             using MBN.Modules;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation.Media;
+            
+             namespace Examples
+             {
+             	public class Program
+             	{
+             		static OLEDCClick _oled;
+             		static readonly MikroFont _font1 = FontManager.GetFont(FontManager.FontName.TahomaReg12);
+            
+             		public static void Main()
+             		{
+             			_oled = new OLEDCClick(Hardware.SocketFour) {FrameRate = OLEDCClick.FrameRates.OCS_140_4Hz};
+            
+             			_oled.Canvas.Clear();
+             			_oled.Canvas.DrawText("Hello", _font1, KnownColors.White, 0, (_oled.CanvasHeight - _font1.FontHeight) / 2, 96, _font1.FontHeight, true);
+             			_oled.Flush();
+            
+             			Thread.Sleep(Timeout.Infinite);
+             		}
+             	}
+             }
+             </code>
+             <code language="VB">
+             Option Explicit On
+             Option Strict On
+            
+             Imports MBN
+             Imports MBN.Modules
+             Imports Microsoft.SPOT.Presentation.Media
+             Imports Microsoft.SPOT
+             Imports System.Threading
+            
+             Namespace Examples
+            	Public Module Module1
+            		Private _oled As OLEDCClick
+            		ReadOnly _font1 As MikroFont = FontManager.GetFont(FontManager.FontName.TahomaReg12)
+            
+            		Public Sub Main()
+            			_oled = New OLEDCClick(Hardware.SocketFour)
+            			_oled.FrameRate = OLEDCClick.FrameRates.OCS_140_4Hz
+            
+            			_oled.Canvas.Clear()
+            			_oled.Canvas.DrawText("Hello", _font1, KnownColors.White, 0, (_oled.CanvasHeight - _font1.FontHeight)\2, 96, _font1.FontHeight, True)
+            			_oled.Flush()
+            
+            			Thread.Sleep(Timeout.Infinite)
+            		End Sub
+            	End Module
+             End Namespace
+             </code>
+             </example>
+        </member>
+        <member name="M:MBN.Modules.OLEDCClick.#ctor(MBN.Hardware.Socket)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MBN.Modules.OLEDCClick"/> class.
+            </summary>
+            <param name="socket">The socket on which the OLEDc Click board is inserted on MikroBus.Net</param>
+            <exception cref="T:MBN.Exceptions.PinInUseException">If some pins are already used by another driver, then the exception is thrown.</exception>
+            <example>Example usage:
+            <code language="C#">
+            var _oled = new OLEDCClick(Hardware.SocketFour);
+            </code>
+            <code language="VB">
+            Dim _oled as OLEDCClick = New OLEDCClick(Hardware.SocketFour)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.OLEDCClick.Flush">
+            <summary>
+            Flushes the default Canvas to the OLED-C Click Display
+            </summary>
+            <returns></returns>
+            <example>Example usage:
+            <code language = "C#">
+            _oled.Canvas.DrawRectangle(KnownColors.Red, KnownColors.Red, new Rect(0, 0, 96, 16));
+            _oled.Flush();
+            </code>
+            <code language = "VB">
+            _oled.Canvas.DrawRectangle(KnownColors.Red, KnownColors.Red, new Rect(0, 0, 96, 16))
+            _oled.Flush()
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.OLEDCClick.Flush(Microsoft.SPOT.MikroBitmap)">
+            <summary>
+            Flushes the supplied Bitmap object to OLED-C Click Display
+            </summary>
+            <param name="bitmap">The MikroBitmap object to flush to the OLED-C display.</param>
+            <returns>True if the operation was successful or otherwise false. for instance, attempting to flush at a destination that is outside the dimensions of the OLED-C display. </returns>
+            <example>Example usage:
+            <code language = "C#">
+            MikroBitmap newCanvas = new MikroBitmap(96, 96);
+            newCanvas.DrawRectangle(KnownColors.Red, KnownColors.Red, new Rect(0, 0, 96, 16));
+            _oled.Flush(newCanvas);
+            </code>
+            <code language = "VB">
+            Dim newCanvas As MikroBitmap = New MikroBitmap(96, 96)
+            newCanvas.DrawRectangle(KnownColors.Red, KnownColors.Red, New Rect(0, 0, 96, 16))
+            _oled.Flush(newCanvas)
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.OLEDCClick.Flush(Microsoft.SPOT.Bitmap)">
+            <summary>
+            
+            </summary>
+            <param name="bitmap"></param>
+        </member>
+        <member name="M:MBN.Modules.OLEDCClick.StartScreenSaver(MBN.Modules.OLEDCClick.ScreenSaverMode,System.Byte)">
+            <summary>
+            Starts the Screen Saver (Vertical scroll, Horizontal panning, Fade in/out, etc.)
+            </summary>
+            <param name="mode">The <see cref="T:MBN.Modules.OLEDCClick.ScreenSaverMode"/> to use.</param>
+            <param name="scrollDelay">The delay between frames.</param>
+            <remarks>The <see cref="F:MBN.Modules.OLEDCClick.ScreenSaverMode.PixelVibration"/> uses the delay parameter as a Pixel offset for the vibrations rather than a delay between frames.</remarks>
+            <example>Example usage:
+            <code language="C#">
+            for (byte x = 0; x <![CDATA[<]]> 8; x++)
+            {
+            	_oled.StartScreenSaver((OLEDCClick.ScreenSaverMode) x, x == 7 ? (byte) 0x02 : (byte) 0x00);
+            	Thread.Sleep(5000);
+            	_oled.StopScreenSaver();
+            }
+            </code>
+            <code language="VB">
+            For x As Integer = 0 To 7
+            	_oled.StartScreenSaver(DirectCast(x, OLEDCClick.ScreenSaverMode), If(x = 7, CByte(<![CDATA[&]]>H2), CByte(<![CDATA[&]]>H0)))
+            	Thread.Sleep(5000)
+            	_oled.StopScreenSaver()
+            Next
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.OLEDCClick.StopScreenSaver">
+            <summary>
+            Stops the ScreenSaver.
+            </summary>
+            <remarks>The ScreenSaver must be stopped before changing ScreenSaver modes.</remarks>
+            <example>Example usage:
+            <code language = "C#">
+            _oled.StopScreenSaver();
+            </code>
+            <code language = "VB">
+            _oled.StopScreenSaver()
+            </code>
+            </example>
+        </member>
+        <member name="M:MBN.Modules.OLEDCClick.Reset(MBN.Enums.ResetModes)">
+            <summary>
+            Resets the OLED-c Click.
+            </summary>
+            <example>Example usage:
+            <code language="C#">
+            _oled.Reset(ResetModes.Soft);
+            </code>
+            <code language="VB">
+            _oled.Reset(ResetModes.Soft)
+            </code>
+            </example>
+            <exception cref="T:System.NotSupportedException">A NotSupportedException will be thrown if an invalid reset method is passed as a parameter.</exception>
+        </member>
+        <member name="M:MBN.Modules.OLEDCClick.SetDisplayOn(System.Boolean)">
+            <summary>
+            Turns on or off the OLED-C Click Display.
+            </summary>
+            <param name="on">Set to true to turn on the display or false to turn off the display.</param>
+            <remarks>This is not the same as setting the <see cref="P:MBN.Modules.OLEDCClick.PowerMode"/> to Low or Off. This merely turns off the OLED Screen.</remarks>
+            <example>Example usage:
+            <code language="C#">
+            _oled.SetDisplayOn(false);
+            Thread.Sleep(1000);
+            _oled.SetDisplayOn(true);
+            </code>
+            <code language="VB">
+            _oled.SetDisplayOn(False)
+            Thread.Sleep(1000)
+            _oled.SetDisplayOn(True)
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.OLEDCClick.Canvas">
+            <summary>
+            Gets the default canvas surface to draw on.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            var newCanvas = new byte[96 * 96];
+            _oled.Canvas.Pixels = newCanvas;
+            </code>
+            <code language = "VB">
+            Dim newCanvas As Byte() = New Byte(96 * 96) {}
+            _oled.Canvas.Pixels = newCanvas
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.OLEDCClick.CanvasHeight">
+            <summary>
+            Gets the Height of the Canvas.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Debug.Print("Canvas height - " + _oled.Canvas.Height);
+            </code>
+            <code language = "VB">
+            Debug.Print("Canvas height - " <![CDATA[&]]> _oled.Canvas.Height)
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.OLEDCClick.CanvasWidth">
+            <summary>
+            Gets the Width of the Canvas.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            Debug.Print("Canvas width - " + _oled.Canvas.Width);
+            </code>
+            <code language = "VB">
+            Debug.Print("Canvas width - " <![CDATA[&]]> _oled.Canvas.Width)
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.OLEDCClick.FrameRate">
+            <summary>
+            Gets or sets the FrameRate of the of the SEPS114A IC Oscillator.
+            </summary>
+            <example>Example usage:
+            <code language = "C#">
+            _oled.FrameRate = OLEDCClick.FrameRates.OCS_140Hz;
+            </code>
+            <code language = "VB">
+            _oled.FrameRate = OLEDCClick.FrameRates.OCS_140Hz
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.OLEDCClick.PowerMode">
+            <summary>
+            Gets or sets the power mode.
+            </summary>
+            <value>
+            The current power mode of the module.
+            </value>
+            <remarks>
+            If the module has no power modes, then GET should always return PowerModes.ON while SET should throw a NotImplementedException.
+            </remarks>
+            <example>Example usage:
+            <code language = "C#">
+            Debug.Print("Current PowerMode - " + _oled.PowerMode);
+            _oled.PowerMode = PowerModes.Low;
+            Debug.Print("New PowerMode - " + _oled.PowerMode);
+            _oled.PowerMode = PowerModes.On;
+            Debug.Print("New PowerMode - " + _oled.PowerMode);
+            </code>
+            <code language = "VB">
+            Debug.Print("Current PowerMode - " <![CDATA[&]]> _oled.PowerMode)
+            _oled.PowerMode = PowerModes.Low
+            Debug.Print("New PowerMode - " <![CDATA[&]]> _oled.PowerMode)
+            _oled.PowerMode = PowerModes.[On]
+            Debug.Print("New PowerMode - " <![CDATA[&]]> _oled.PowerMode)
+            </code>
+            </example>
+        </member>
+        <member name="P:MBN.Modules.OLEDCClick.DriverVersion">
+            <summary>
+            Gets the driver version.
+            </summary>
+            <value>
+            The driver version.
+            </value>
+            <example>Example usage:
+            <code language = "C#">
+            Debug.Print("Driver Version - " + _oled.DriverVersion);
+            </code>
+            <code language = "VB">
+            Debug.Print("Driver Version - " <![CDATA[&]]> _oled.DriverVersion.ToString());
+            </code>
+            </example>
+        </member>
+        <member name="T:MBN.Modules.OLEDCClick.ScreenSaverMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.ScreenSaverMode.PanLeft">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.ScreenSaverMode.PanRight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.ScreenSaverMode.DownScroll">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.ScreenSaverMode.UpScroll">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.ScreenSaverMode.FadeIn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.ScreenSaverMode.FadeOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.ScreenSaverMode.FadeInOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.ScreenSaverMode.PixelVibration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MBN.Modules.OLEDCClick.FrameRates">
+            <summary>
+            Then enumeration containing values used to adjust the FrameRate of the SEPS114A IC Oscillator.
+            80 frames/second (Minimum frame rate) - 140 frames/second (Maximum Frame rate)
+            OCS_140Hz = 0x0C, OCS_140_2Hz = 0x0D, OCS_140_3Hz = 0x0E, OCS_140_4Hz = 0x0F all will result in the maxim framer rate per datasheet.
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_80Hz">
+            <summary>
+            80 frames/second - Minimum Frame rate
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_85Hz">
+            <summary>
+            85 frames/second
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_90Hz">
+            <summary>
+            90 frames/second
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_95Hz">
+            <summary>
+            95 frames/second (Default).
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_100Hz">
+            <summary>
+            100 frames/second
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_105Hz">
+            <summary>
+            105 frames/second
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_110Hz">
+            <summary>
+            110 frames/second
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_115Hz">
+            <summary>
+            115 frames/second
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_120Hz">
+            <summary>
+            120 frames/second
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_125Hz">
+            <summary>
+            125 frames/second
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_130Hz">
+            <summary>
+            130 frames/second
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_135Hz">
+            <summary>
+            135 frames/second
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_140Hz">
+            <summary>
+            140 frames/second - Maximum Frame rate
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_140_2Hz">
+            <summary>
+            140 frames/second - Maximum Frame rate
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_140_3Hz">
+            <summary>
+            140 frames/second - Maximum Frame rate
+            </summary>
+        </member>
+        <member name="F:MBN.Modules.OLEDCClick.FrameRates.OCS_140_4Hz">
+            <summary>
+            140 frames/second - Maximum Frame rate
+            </summary>
+        </member>
+    </members>
+</doc>

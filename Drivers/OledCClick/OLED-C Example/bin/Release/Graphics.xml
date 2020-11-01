@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Graphics</name>
+    </assembly>
+    <members>
+        <member name="T:MikroBusNet.Hardware.Graphics">
+            <summary>
+            MikroBUS.NET native graphic calls
+            </summary>
+        </member>
+        <member name="M:MikroBusNet.Hardware.Graphics.Rgb8ToBgr5(System.Byte[],System.Byte[])">
+            <summary>
+            Converts a RGB8 bitmap to a BGR565 bitmap using byte arrays.
+            </summary>
+            <param name="originalBitmap">The original bitmap.</param>
+            <param name="convertedBitmap">The converted bitmap.</param>
+        </member>
+        <member name="M:MikroBusNet.Hardware.Graphics.Rgb8ToBgr5(System.Byte[],System.UInt16[])">
+            <summary>
+            Converts a RGB8 bitmap to a BGR565 bitmap using Unsigned Int16 arrays.
+            </summary>
+            <param name="originalBitmap">The original bitmap.</param>
+            <param name="convertedBitmap">The converted bitmap.</param>
+        </member>
+        <member name="M:MikroBusNet.Hardware.Graphics.Rgb8ToRgb5(System.Byte[],System.Byte[])">
+            <summary>
+            Converts a RGB8 bitmap to a RGB565 bitmap using byte arrays.
+            </summary>
+            <param name="originalBitmap">The original bitmap.</param>
+            <param name="convertedBitmap">The converted bitmap.</param>
+        </member>
+        <member name="M:MikroBusNet.Hardware.Graphics.Rgb8ToRgb5(System.Byte[],System.UInt16[])">
+            <summary>
+            Converts a RGB8 bitmap to a RGB565 bitmap using Unsigned Int16 arrays.
+            </summary>
+            <param name="originalBitmap">The original bitmap.</param>
+            <param name="convertedBitmap">The converted bitmap.</param>
+        </member>
+    </members>
+</doc>

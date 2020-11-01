@@ -1,0 +1,136 @@
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.exe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.exe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Basic Application.exe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Basic Application.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MBN.Modules.OLED-CClick.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MikroBusNet.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MBN.Modules.OLED-CClick.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MikroBusNet.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MBN.Modules.OLED-CClick.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MikroBusNet.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MBN.Modules.OLED-CClick.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MikroBusNet.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.dll
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MikroBusNet.dll
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.xml
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MikroBusNet.pdb
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MikroBusNet.xml
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\OLED-C Example.csprojResolveAssemblyReference.cache
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\TinyCLR_DebugReferences.cache
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\MBN_basic_application1.Resources.resources
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\OLED-C Example.csproj.GenerateResource.Cache
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\MBN_basic_application1.Resources.tinyresources
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\TinyResGen.cache
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\be\Basic Application.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\be\Basic Application.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\le\Basic Application.pe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\le\Basic Application.pdbx
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\Basic Application.exe
+Z:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\Basic Application.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.exe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.exe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Basic Application.exe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Basic Application.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MBN.Modules.OLED-CClick.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MikroBusNet.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MBN.Modules.OLED-CClick.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MikroBusNet.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MBN.Modules.OLED-CClick.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MikroBusNet.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MBN.Modules.OLED-CClick.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MikroBusNet.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.dll
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MikroBusNet.dll
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.xml
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MikroBusNet.pdb
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MikroBusNet.xml
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\OLED-C Example.csprojResolveAssemblyReference.cache
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\MBN_basic_application1.Resources.resources
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\OLED-C Example.csproj.GenerateResource.Cache
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\MBN_basic_application1.Resources.tinyresources
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\TinyResGen.cache
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\be\Basic Application.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\be\Basic Application.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\le\Basic Application.pe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\le\Basic Application.pdbx
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\Basic Application.exe
+F:\dev\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\Basic Application.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.exe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.exe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Basic Application.exe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Basic Application.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MBN.Modules.OLED-CClick.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MBN.Modules.OLED-CClick.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MBN.Modules.OLED-CClick.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MBN.Modules.OLED-CClick.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.dll
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.xml
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\OLED-C Example.csprojResolveAssemblyReference.cache
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\MBN_basic_application1.Resources.resources
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\OLED-C Example.csproj.GenerateResource.Cache
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\MBN_basic_application1.Resources.tinyresources
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\TinyResGen.cache
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\be\Basic Application.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\be\Basic Application.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\le\Basic Application.pe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\le\Basic Application.pdbx
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\Basic Application.exe
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\Basic Application.pdb
+C:\Users\christophe.gerbier\Documents\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\TinyCLR_DebugReferences.cache
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.exe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.exe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Basic Application.exe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Basic Application.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\le\Basic Application.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\be\Basic Application.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MBN.Modules.OLED-CClick.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MBN.Modules.OLED-CClick.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\MBN.Modules.OLED-CClick.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\MBN.Modules.OLED-CClick.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.dll
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\MBN.Modules.OLED-CClick.xml
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\OLED-C Example.csprojResolveAssemblyReference.cache
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\MBN_basic_application1.Resources.resources
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\OLED-C Example.csproj.GenerateResource.Cache
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\MBN_basic_application1.Resources.tinyresources
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\TinyResGen.cache
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\be\Basic Application.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\be\Basic Application.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\le\Basic Application.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\le\Basic Application.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\Basic Application.exe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\Basic Application.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\obj\Release\TinyCLR_DebugReferences.cache
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\Graphics.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\Graphics.pe
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\LE\Graphics.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\BE\Graphics.pdbx
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Graphics.dll
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Graphics.pdb
+C:\Users\christophe.gerbier\Documents\Perso\MikroBus.Net\Examples\OLED-CClick\OLED-C Example\bin\Release\Graphics.xml
