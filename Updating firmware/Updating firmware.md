@@ -19,23 +19,28 @@ If you do not already have it installed, you will need the ST Microelectronics�
 
 
 Now launch the ST Dfu Demo program you have just installed before. If the board is in DFU mode, it should display something similar to this picture.
+
 ![Screenshot](ScreenShot-396.jpg)
 
 If this is not the case, then you simply have to repeat the process with the two buttons (15 & 16) seen just above.
 
 Now click on the “Choose” button on the bottom and navigate to the place where you have unzipped the firmware files.
+
 ![Screenshot](ScreenShot-397.jpg)
 
 You will then select the file named Quail.dfu.
 
 You will then get a warning message that you can safely ignore.
+
 ![Screenshot](ScreenShot-398.jpg)
 
 
 Then the process of the upgrade will begin. It will not last very long 🙂
+
 ![Screenshot](ScreenShot-399.jpg)
 
 You can now leave the DFU mode by clicking the “Leave DFU mode” button in the upper left region.
+
 ![Screenshot](ScreenShot-400.jpg)
 
 You are done with the bootloader.
@@ -51,6 +56,7 @@ Select USB transport and the Quail mainboard should appear in the list.
 Then, click the “Browse” button and locate the files ER_CONFIG.hex and ER_FLASH.hex. They should be at the same location than the bootloader .dfu file seen before.
 
 Select both files and click “Open”.
+
 ![Screenshot](ScreenShot-405.jpg)
 
 You will now start the deployment of the new firmware by clicking on the “Deploy” button.
@@ -66,6 +72,7 @@ The program will connect to the Quail board…
 This can take a few seconds before it starts.
 
 Once the firmware region has been erased, MFDeploy will start loading the new firmware.
+
 ![Screenshot](ScreenShot-404.jpg)
 
 This steps takes only a few seconds and once the deployment status window has gone, then the firmware has been updated !
